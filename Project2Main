@@ -1,0 +1,95 @@
+
+public class robbinsProject2 {
+
+	//Project 2 by Allie Robbins for CMPSCI 2261
+  
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//declare 2D array
+		int[][] arrayMain = {
+				{4, 2, 5, 3, 4, 5, 8},
+				{1, 7, 8, 4, 3, 3, 4}, 
+				{2, 3, 3, 4, 3, 3, 2},
+				{3, 3, 3, 7, 3, 4, 1},
+				{1, 3, 2, 4, 3, 6, 3},
+				{5, 3, 4, 4, 6, 3, 4},
+				{8, 3, 7, 4, 8, 3, 8},
+				{2, 6, 3, 5, 9, 2, 7}
+		};
+		
+		System.out.print("Printing Employee # and their hours worked.\n\n");
+		System.out.print("              M T W T F S S\n");
+		
+		//print 2D array 
+		for(int i = 0; i < 8; i++) {
+			System.out.print("Employee #" + i + " - ");
+			for(int j = 0; j < 7; j++) {
+				System.out.print(arrayMain[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		//create array to hold sum of hours - initialize using function to find total hours
+		int[] array2 = findTotalHours(arrayMain);
+		
+		System.out.print("\nPrinting Employee # and total hours worked in decreasing order.\n\n");		//formating
+		
+		/*//print array2 showing # of hours worked
+		for(int i = 0; i < array2.length; i++) {
+			System.out.print("Employee #" + i + " worked " + array2[i] + " hours\n");
+		}*/
+	
+		//display employee# + hours worked in decreasing order 
+		for(int i = 0; i < 8; i++) {
+			findMax(array2);
+		}
+		
+		//end of program
+		System.out.print("\nEnd of Program.");
+	}
+	
+	
+public static int[] findTotalHours(int[][] array){	 //function to find sum of rows
+	
+	//declare variables and array
+    int[] rowSum = new int[8];
+    int sum = 0;
+    
+    //double loop to find sum of rows
+    for(int i = 0; i < 8; i++){  
+        for(int j = 0; j < 7; j++){
+            sum += array[i][j];    
+        }
+        
+        rowSum[i] = sum;	//set value to sum of row
+        sum = 0;	//reset sum variable
+    }
+
+    return rowSum;	//return array
+	
+}
+
+public static void findMax(int[] array) {	//function to find MAX element
+	
+	//declare variables
+	int max = 0;
+	int empNum = 0;
+	
+	//loop to find MAX element
+	for(int i = 0; i < 8; i++) {
+		if (array[i] > max) {
+		      max = array[i];
+		      empNum = i;
+	}
+}
+	//print employee# + hours worked
+	System.out.print("Employee #" + empNum + " worked " + max + " hours.\n");
+		array[empNum] = 0; 		//set MAX element to 0
+	}
+}
+	
+	
+	
+	
+	
